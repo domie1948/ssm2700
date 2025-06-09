@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.WeixiubaoyangDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.entity.WeixiubaoyangEntity" id="weixiubaoyangMap">
+        <result property="weixiudanhao" column="weixiudanhao"/>
+        <result property="leixing" column="leixing"/>
+        <result property="weixiuriqi" column="weixiuriqi"/>
+        <result property="weixiuwenti" column="weixiuwenti"/>
+        <result property="beizhu" column="beizhu"/>
+        <result property="tupian" column="tupian"/>
+    </resultMap>
+
+	<select id="selectListVO"
+		resultType="com.entity.vo.WeixiubaoyangVO" >
+		SELECT * FROM weixiubaoyang  weixiubaoyang         
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectVO"
+		resultType="com.entity.vo.WeixiubaoyangVO" >
+		SELECT  weixiubaoyang.* FROM weixiubaoyang  weixiubaoyang
+ 		<where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+
+    <select id="selectListView"
+		resultType="com.entity.view.WeixiubaoyangView" >
+
+		SELECT  weixiubaoyang.* FROM weixiubaoyang  weixiubaoyang 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.entity.view.WeixiubaoyangView" >
+		SELECT * FROM weixiubaoyang  weixiubaoyang <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	
+</mapper>
